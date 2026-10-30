@@ -1,0 +1,49 @@
+params:
+  - id: workspace_password
+    type: secret
+    name: "Workspace Password"
+    description: "Password used to sign in as the workspace admin"
+    default_value: "$random(len=20)"
+    optional: false
+  - id: admin_user
+    type: string
+    name: "Admin Username"
+    description: "Username of the workspace admin, admin by default"
+    default_value: "admin"
+    optional: false
+  - id: litellm_api_base
+    type: string
+    name: "LiteLLM API Base"
+    description: "Base URL of the LiteLLM-compatible gateway, for example https://your-gateway.example/v1"
+    default_value: "https://your-gateway.example/v1"
+    optional: false
+  - id: litellm_api_key
+    type: secret
+    name: "LiteLLM API Key"
+    description: "API key for the model gateway"
+    default_value: "sk-placeholder"
+    optional: false
+  - id: moyai_models
+    type: string
+    name: "Default Models"
+    description: "Comma-separated model list exposed to agents, provider/model format"
+    default_value: "openai/gpt-6-astra"
+    optional: true
+
+locales:
+  zh:
+    workspace_password:
+      name: "工作区密码"
+      description: "以管理员身份登录工作区使用的密码，部署时自动生成"
+    admin_user:
+      name: "管理员用户名"
+      description: "工作区管理员用户名，默认 admin"
+    litellm_api_base:
+      name: "模型网关地址"
+      description: "LiteLLM 兼容网关的基础 URL"
+    litellm_api_key:
+      name: "模型网关密钥"
+      description: "模型网关的 API 密钥"
+    moyai_models:
+      name: "默认模型列表"
+      description: "暴露给代理的模型清单，provider/model 格式，逗号分隔"

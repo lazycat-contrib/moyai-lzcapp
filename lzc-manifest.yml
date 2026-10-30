@@ -1,0 +1,24 @@
+application:
+  subdomain: moyai
+  public_path:
+    - /
+  upstreams:
+    - location: /
+      backend: http://moyai:8787/
+
+services:
+  moyai:
+    # ghcr.io/berriai/moyai:quickstart
+    image: ghcr.io/berriai/moyai@sha256:8d6ddc0640bcfe9780a8d42c99e5ff849ad04f9e231b322dc0066853b77b0a08
+    environment:
+      - DATA_DIR=/data
+      - WORKSPACE_PASSWORD={{ .U.workspace_password }}
+      - MOYAI_ADMIN_USER={{ .U.admin_user }}
+      - ENCRYPTION_KEY={{ stable_secret "moyai_encryption_key" }}
+      - LITELLM_API_BASE={{ .U.litellm_api_base }}
+      - LITELLM_API_KEY={{ .U.litellm_api_key }}
+      - MOYAI_MODELS={{ .U.moyai_models }}
+      - MOYAI_MODEL_CALL_LIMIT=100
+      - MOYAI_MODEL_TIMEOUT=300
+    binds:
+      - /lzcapp/var/data:/data

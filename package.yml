@@ -1,0 +1,22 @@
+package: community.lazycat.app.moyai
+version: 0.1.0
+name: Moyai
+description: A self-hosted coding agent for background work, works with Claude Code, Codex, OpenCode and 100+ providers
+min_os_version: 1.5.0
+homepage: https://github.com/BerriAI/moyai
+author: BerriAI
+license: MIT
+locales:
+  zh:
+    name: Moyai 编码助手
+    description: 自托管后台编码代理，支持 Claude Code、Codex、OpenCode 及 100+ 模型提供商
+  zh_CN:
+    name: Moyai 编码助手
+    description: 自托管后台编码代理，支持 Claude Code、Codex、OpenCode 及 100+ 模型提供商
+  en:
+    name: Moyai
+    description: A self-hosted coding agent for background work, works with Claude Code, Codex, OpenCode and 100+ providers
+unsupported_platforms:
+  - ios
+  - android
+  - tvos

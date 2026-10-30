@@ -1,0 +1,44 @@
+version: 1
+
+project:
+  root: .
+  build_config: lzc-build.yml
+  package_file: package.yml
+  output: .lazycat-build/moyai.lpk
+  target_arch: amd64
+
+update:
+  strategy: publish
+  allow_downgrade: false
+  version_source:
+    type: image
+    image: moyai
+    bump: patch
+
+images:
+  - id: moyai
+    target: service
+    service: moyai
+    source: ghcr.io/berriai/moyai
+    # Pre-release project: GHCR only has the mutable quickstart tag (follows
+    # main) plus quickstart-sha-* snapshots, no SemVer tags. Follow quickstart
+    # by digest comparison with a patch bump per change; direct delivery with
+    # a digest-pinned manifest reference, as mutable mirror verification is
+    # unavailable.
+    channel: custom
+    sort: created
+    tag_regex: ^quickstart$
+    delivery:
+      mode: direct
+
+stores:
+  official:
+    enabled: false
+    skip_if_version_exists: false
+    retry:
+      enabled: false
+  private:
+    enabled: true
+    skip_if_version_exists: true
+    name: Moyai
+    summary: 自动跟随上游 quickstart 镜像发布的自托管后台编码代理
