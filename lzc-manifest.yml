@@ -5,11 +5,11 @@ application:
   upstreams:
     - location: /
       backend: http://moyai:8787/
-
 services:
   moyai:
     # ghcr.io/berriai/moyai:quickstart
-    image: ghcr.io/berriai/moyai@sha256:8d6ddc0640bcfe9780a8d42c99e5ff849ad04f9e231b322dc0066853b77b0a08
+    # upstream: ghcr.io/berriai/moyai:quickstart@sha256:461d6c2269c5cc829f674bfc00741bec74d3d93364523698eaf47bfee34199f0
+    image: ghcr.io/berriai/moyai:quickstart@sha256:461d6c2269c5cc829f674bfc00741bec74d3d93364523698eaf47bfee34199f0
     environment:
       - DATA_DIR=/data
       - WORKSPACE_PASSWORD={{ .U.workspace_password }}

@@ -1,5 +1,5 @@
 package: community.lazycat.app.moyai
-version: 0.1.0
+version: 0.1.1
 name: Moyai
 description: A self-hosted coding agent for background work, works with Claude Code, Codex, OpenCode and 100+ providers
 min_os_version: 1.5.0
