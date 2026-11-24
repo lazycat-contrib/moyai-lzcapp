@@ -8,8 +8,8 @@ application:
 services:
   moyai:
     # ghcr.io/berriai/moyai:quickstart
-    # upstream: ghcr.io/berriai/moyai:quickstart@sha256:42082a97f8324a93202617226ab7fe6ad06074ae573629df183dc368bd9b4a36
-    image: ghcr.io/berriai/moyai:quickstart@sha256:42082a97f8324a93202617226ab7fe6ad06074ae573629df183dc368bd9b4a36
+    # upstream: ghcr.io/berriai/moyai:quickstart@sha256:c16a5dea62d54407682297b9cb0c2b3d8c0810c5503819b75383c210123a97dc
+    image: ghcr.io/berriai/moyai:quickstart@sha256:c16a5dea62d54407682297b9cb0c2b3d8c0810c5503819b75383c210123a97dc
     environment:
       - DATA_DIR=/data
       - WORKSPACE_PASSWORD={{ .U.workspace_password }}
